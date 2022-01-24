@@ -1,0 +1,32 @@
+{% extends 'flagstone/base.html' %}
+
+
+{% block body_content %}
+<div class="jumbotron"><h1><b>Adobe Transportation</b></h1><h2>Adobe Time Sheet Details</h2></div>
+<div class="container">
+
+	
+<p>{{timesheet_detail.name}} name</p>
+<p>{{timesheet_detail.week_ending}} week_ending</p>
+<p>{{timesheet_detail.sun_time}} sun_time</p>
+<p>{{timesheet_detail.mon_time}} mon_time</p>
+<p>{{timesheet_detail.tue_time}} tue_time</p>
+<p>{{timesheet_detail.wed_time}} wed_time</p>
+<p>{{timesheet_detail.thu_time}} thu_time</p>
+<p>{{timesheet_detail.fri_time}} fri_time</p>
+<p>{{timesheet_detail.sat_time}} sat_time</p>
+
+<p>{{timesheet_detail.weekly_hrs}} total weekly_hrs</p>
+
+
+</div>
+<br>
+<div class="container">
+	<p><a class="btn btn-danger" href="{% url 'flagstone:timesheet_update' pk=timesheet_detail.pk %}">UPDATE</a></p>
+</div>
+
+
+
+{% endblock %}
+
+

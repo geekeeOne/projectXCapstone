@@ -1,0 +1,182 @@
+{% extends 'flagstone/base.html' %}
+
+
+
+
+
+
+
+
+{% block body_content %}
+<!-- <link rel="stylesheet" type="text/css" href="master.css"> -->
+<div class="jumbotron"><h1><b>Adobe Transportation</b></h1><h2 class="text-danger">PRAASA Shuttle Form</h2></div>
+<div class="container">
+
+
+    
+
+<form method="POST">
+
+    {% csrf_token %}
+    
+<table>
+<thead>
+<tr>
+	<td class="text-left">
+
+<p><strong>total_due_status</strong></p>
+<p>{{form.total_due_status}}</p>
+
+
+
+
+<p><strong>first name</strong></p>
+<p>{{form.first_name}}</p>
+<p><strong>last name</strong></p>
+<p>{{form.last_name}}</p>
+
+<p><strong>phone</strong></p>
+<p>{{form.phone}}</p>
+
+<p><strong>email</strong></p>
+<p>{{form.email}}</p>
+	
+	</td>
+		<td class="text-left">
+			<p><input type="submit" class="btn btn-primary" value="Submit" name=""> <br></p>
+<p><strong>cost</strong></p>
+<p>{{form.cost}}</p>
+		
+
+<p><strong>cc_num</strong></p>
+<p>{{form.cc_num}}</p>
+
+<p><strong>cc_exp</strong></p>
+<p>{{form.cc_exp}}</p>
+
+<p><strong>cc_cv</strong></p>
+<p>{{form.cc_cv}}</p>
+
+<p><strong>zip code</strong></p>
+<p>{{form.z_code}}</p>
+		</td>
+<td>	
+</td>
+<br>
+
+</tr>	
+</thead>	
+
+
+
+
+
+
+
+
+
+
+
+
+<tbody>
+	
+
+<tr>
+	
+		<td class="text-left">
+			
+<p><strong>arrival_airport</strong></p>
+<p>{{form.arrival_airport}}</p>
+<p><strong>arrival_airline</strong></p>
+<p>{{form.arrival_airline}}</p>
+
+<p><strong>arrival_date</strong></p>
+<p>{{form.arrival_date}}</p>
+<p><strong>arrival_time</strong></p>
+<p>{{form.arrival_time}}</p>
+
+
+
+<p><strong>arrival_flight</strong></p>
+<p>{{form.arrival_flight}}</p>
+<p><strong>drop_location</strong></p>
+<p>{{form.drop_location}}</p>
+<p><strong>arrival_notes</strong></p>
+<p>{{form.arrival_notes}}</p>
+
+</td>
+<td class="text-left">
+	<br><br><br>
+	
+<p><strong>departure_airport</strong></p>
+<p>{{form.departure_airport}}</p>
+
+<p><strong>departure_airline</strong></p>
+<p>{{form.departure_airline}}</p>
+
+<p><strong>departure_date</strong></p>
+<p>{{form.departure_date}}</p>
+
+<p><strong>departure_time</strong></p>
+<p>{{form.departure_time}}</p>
+
+
+
+<p><strong>departure_flight</strong></p>
+<p>{{form.departure_flight}}</p><br>
+<p><strong>departing pickup_location</strong></p>
+<p>{{form.pickup_location}}</p>
+
+<p><strong>departing pickup_time</strong></p>
+<p>{{form.pickup_time}}</p>
+
+<p><strong>departing_notes</strong></p>
+<p>{{form.departing_notes}}</p>
+
+
+</td>
+
+
+
+</tr>
+
+
+<tr>
+
+</tr>
+
+
+<tr>
+<td class="text-left">
+
+</td>
+
+
+<td class="text-left">
+
+
+</td>
+
+
+<td class="text-left">
+
+</td>
+</tr>
+
+
+
+</tbody>
+</table>
+<td class="text-left">
+
+</td>
+
+
+<input type="submit" class="btn btn-primary" value="Submit" name=""> 
+</form>
+
+
+</div>
+
+{% endblock %}
+

@@ -1,0 +1,156 @@
+{% extends 'flagstone/base.html' %}
+
+
+
+
+
+
+
+
+{% block body_content %}
+<!-- <link rel="stylesheet" type="text/css" href="master.css"> -->
+<div class="jumbotron"><h1><b>Adobe Transportation</b></h1><h2 class="text-danger">Rental Form</h2></div>
+<div class="container">
+
+
+    
+
+<form method="POST">
+
+    {% csrf_token %}
+    <input type="submit" class="btn btn-primary" value="Submit" name=""> 
+<table>
+<thead>
+<tr>
+	<td class="text-center">
+		<p><strong>Organization</strong></p>
+		<p>{{form.org_name}}</p>
+		<p><strong>customer</strong></p>
+		<p>{{form.customer}}</p><p><strong>van_number</strong></p>
+		<p>{{form.van_number}}</p>
+		<p><strong>status_type</strong></p>
+		<p>{{form.status_type}}</p>
+	<td class="text-center">
+	<p><strong>rental_date/rental_time</strong></p>
+	<p>{{form.rental_date}} {{form.rental_time}}</p>
+	<p><strong>return_date/return_time</strong></p>
+	<p>{{form.return_date}} {{form.return_time}}</p>
+	<strong>date_returned/time_returned</strong></p>
+	<p>{{form.date_returned}} {{form.time_returned}}</p>
+
+		<p><strong>total_due_status</strong></p>
+		<p>{{form.total_due_status}}</p>
+		<p><strong>final_total_status</strong></p>
+		<p>{{form.final_total_status}}</p>
+		
+	</td>
+
+</tr>	
+</thead>	
+
+
+
+
+<tbody>
+	
+
+<tr>
+	<td class="text-center">
+		
+		<td class="text-center">
+<p><strong>daily_allowed_miles</strong></p>
+<p>{{form.daily_allowed_miles}}</p>
+<p><strong>mileage_over_rate</strong></p>
+<p>{{form.mileage_over_rate}}</p>
+
+<td class="text-center"><p><strong>odometer_out</strong></p>
+<p>{{form.odometer_out}}</p><p><strong>odometer_in</strong></p>
+<p>{{form.odometer_in}}</p></td>
+
+</td>
+</td>
+
+</tr>
+
+
+<tr>
+
+</tr>
+
+
+<tr>
+<td class="text-center">
+<p><strong>daily_rate</strong></p>
+<p>{{form.daily_rate}}</p>
+<p><strong>additional_driver_rate</strong></p>
+<p>{{form.additional_driver_rate}}</p>
+<p><strong>mexico_insurance_rate</strong></p>
+<p>{{form.mexico_insurance_rate}}</p>
+<p><strong>roadside_assistance_rate</strong></p>
+<p>{{form.roadside_assistance_rate}}</p>
+<p><strong>us_insurance_rate</strong></p>
+<p>{{form.us_insurance_rate}}</p>
+<p><strong>hitch_rate</strong></p>
+<p>{{form.hitch_rate}}</p>
+<p><strong>luggage_rack_rate</strong></p>
+<p>{{form.luggage_rack_rate}}</p>
+</td>
+
+
+<td class="text-center">
+<p><strong>drop_fee</strong></p>
+<p>{{form.drop_fee}}</p>
+<p><strong>airport_access_fee</strong></p>
+<p>{{form.airport_access_fee}}</p>
+<p><strong>airport_pickup_fee</strong></p>
+<p>{{form.airport_pickup_fee}}</p>
+<p><strong>drop_fee</strong></p>
+<p>{{form.drop_fee}}</p>
+<p><strong>misc_fee</strong></p>
+<p>{{form.misc_fee}}</p>
+
+</td>
+
+
+<td class="text-center">
+<p><strong>fuel_charge</strong></p>
+<p>{{form.fuel_charge}}</p>
+<p><strong>cleaning_charge</strong></p>
+<p>{{form.cleaning_charge}}</p>
+<p><strong>damage_charge</strong></p>
+<p>{{form.damage_charge}}</p>
+<p><strong>misc_charge</strong></p>
+<p>{{form.misc_charge}}</p>
+<p><strong>lic_tax</strong></p>
+<p>{{form.lic_tax}}</p>
+<p><strong>sales_tax</strong></p>
+<p>{{form.sales_tax}}</p>
+<p><strong>surcharge</strong></p>
+<p>{{form.surcharge}}</p>
+</td>
+</tr>
+
+
+
+</tbody>
+</table>
+<td class="text-center">
+	<p>Misc Charge Text</p>
+<p>{{form.misc_fee_text}}{{form.misc_charge_text}}</p>
+
+<p><strong>notes_out</strong></p>
+<p>{{form.notes_out}}</p>
+<p><strong>notes_in</strong></p>
+<p>{{form.notes_in}}</p>
+<p><strong>misc_fee_text</strong></p>
+</td>
+
+
+<input type="submit" class="btn btn-primary" value="Submit" name=""> 
+</form>
+
+
+</div>
+
+{% endblock %}
+

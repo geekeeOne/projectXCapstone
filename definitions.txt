@@ -1,0 +1,239 @@
+(X) Completed
+* Needs completed or still working on it
+
+
+(X)	Users
+	(X)	Adobe_Users
+		(X)	name
+		(X)	email
+		(X)	phone
+		(X)	admin_group
+
+(X)	Customer
+	(X)	Customer_Information
+		(X)	personal_info
+			(X)	name
+			(X)	email
+			(X)	phone
+			(X)	address
+		(X)	drivers_lic_info
+			(X)	dl_number
+			(X)	dl_exp
+			(X)	dl_dob
+			payment_info
+			(X)	cc_num
+			(X)	cc_exp
+			(X)	cc_cv
+
+(X)	Fleet_Management
+	(X) Van_Information
+		(X)	van_information
+			(X)	van_id
+			(X)	van_vin
+			(X)	van_plate
+			(X)	van_year_make_model
+			(X)	van_tag_exp
+
+	(X)	Van_Inspection_Log
+		(X)	van_information
+		(X)	inspector_info
+		(X)	inspection_date
+		(X)	inspection_note
+
+	(X)	Van_Maintenance_Log
+		(X)	van_information
+		(X)	maintenance_type
+		(X)	maintenance_location
+		(X)	maintenance_date
+		(X)	inspection_note
+
+
+(X)	Rental_Service
+	(X)	Van_Rental (VARE)
+		(X)	rental_datetime
+			(X)	rental_date
+			(X)	rental_time
+			(X)	return_date
+			(X)	return_time
+		(X)	customer_information
+		(X)	van_information
+
+Driver_Administration
+	(X)	Driver_Information
+	(X)	Time_Sheets
+	(X)	Driver_Review
+
+
+	Shuttle_Service
+		(X)	Pick_Up/Drop_Off Services (PUDO)
+			(X)	customer_info
+			(X)	origin_pickup_date
+			(X)	origin_pickup_time
+			(X)	origin_pickup_location
+			(X)	return_pickup_date
+			(X)	return_pickup_time
+			(X)	return_pickup_location
+			(X)	notes
+
+		(X)	Airport_Pick Up/Drop_Off (AP_PUDO)
+			(X)	customer_info
+			(X)	event_id
+			(X)	arrival_date
+			(X)	arrival_time
+			(X)	arrival_location
+			(X)	arrival_airline
+			(X)	arrival_flight_number
+			(X)	arrival_destination
+			(X)	departure_location
+			(X)	departure_pickup_time
+			(X)	departure_date
+			(X)	departure_time
+			(X)	departure_location
+			(X)	departure_airline
+			(X)	departure_flight_number
+
+		(X)	Special_Service (SP_SERV)
+			(X)	customer_info
+			(X)	event_id
+			(X)	origin_pickup_date
+			(X)	origin_pickup_time
+			(X)	origin_pickup_location
+			(X)	return_pickup_date
+			(X)	return_pickup_time
+			(X)	return_pickup_location
+			(X)	arrival_date
+			(X)	arrival_time
+			(X)	arrival_location
+			(X)	arrival_airline
+			(X)	arrival_flight_number
+			(X)	arrival_destination
+			(X)	departure_location
+			(X)	departure_pickup_time
+			(X)	departure_date
+			(X)	departure_time
+			(X)	departure_location
+			(X)	departure_airline
+			(X)	departure_flight_number
+			(X)	special_notes
+
+		(X)	Special_Event (SP_EVNT)
+			(X)	event_name
+			(X)	organization_name
+			(X)	customer_name
+			(X)	event_start_date
+			(X)	event_start_time
+			(X)	event_finish_date
+			(X)	event_finish_time
+			(X)	event_description
+
+
+	(X)	Driver_Van_Event_Assignment
+		(X)	Adobe_Driver
+		(X)	Adobe_Van
+		(X)	Shuttle_Service_ID_PUDO
+		(X)	Shuttle_Service_ID_AP_PUDO
+		(X)	Shuttle_Service_ID_SP_SERV
+		(X)	Shuttle_Service_ID_SP_EVNT
+
+
+	#########################################################################
+	#########################################################################
+
+	Displayed_Content
+
+
+
+
+	(X)	Adobe_User_Registration
+	(X)	Adobe_User_Login/Logout
+		Adobe_User_Profile
+
+
+	(X)	Customer_Creatation
+	(X)	Customer_List
+			last_name, first_name
+			phone
+			email
+	(X)	Customer_Detail_Information
+			Update
+		
+	(X)	Van_List
+			(X) van_number-van_license_plate
+			(X)	Van_Detail
+			(X)	Update
+		
+
+	(X)	Rental_Creation
+	(X)	Rental_List
+		Rental_Detail(STATEMENT_OF_CHARGES)
+			(X) Update
+			Print
+	*		Email
+		
+		
+	(x)	AP_Shuttle_Create
+	(x)	AP_Shuttle_List
+		AP_Shuttle_Detail(STATEMENT_OF_CHARGES)
+			(X)	Update
+			Print
+	*		Email
+
+	
+	*	PUDO
+			Shuttle_Create
+			Shuttle_List
+			Shuttle_Detail (STATEMENT_OF_CHARGES)
+				Update
+				Print
+				Email
+	*	SP_SERV
+			Special_Service_Create
+			Special_Service_List
+			Special_Service_Detail (STATEMENT_OF_CHARGES)
+				Update
+				Print
+				Email
+	*	SP_EVNT
+			Special_Event_Create
+			Special_Event_List
+			Special_Event_Detail (STATEMENT_OF_CHARGES)
+				Update
+				Print
+				Email
+
+	*	Adobe_Drivers
+			Create_Driver
+			Driver_List
+			Driver_Detail
+				Update
+				Print	
+
+
+	*	Van_Driver_Schedule
+			Schedule_Create
+			Schedule_List
+			Schedule_Detail (STATEMENT_OF_CHARGES)
+				Update
+				Delete
+				Print
+				Email
+
+	*	Van_Maintenance_Log
+			Van_Maintenance_Log_Create
+			Van_Maintenance_Log_List
+			Van_Maintenance_Log_Detail
+				Update
+				Delete
+				Print
+				Email
+
+	*	Van_Inspection_Log
+			Van_Inspection_Log_Create
+			Van_Inspection_Log_List
+			Van_Inspection_Log_Detail
+				Update
+				Delete
+				Print
+				Email
+
+	

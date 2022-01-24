@@ -1,0 +1,313 @@
+
+
+{% extends 'flagstone/base.html' %}
+
+
+{% block body_content %}
+
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<div class="container">
+ <div class="container">
+    <a class="btn btn-danger" href="{% url 'flagstone:shuttle_update' pk=shuttle_detail.pk %} ">UPDATE</a>
+    <div class="row">
+                <div class="col-xs-6">
+                    <address>
+                <h3>Adobe Transportation</h3>
+                <h4>4625 E Broadway, Suite 106</h4>
+                <h4>Tucson, AZ 85711</h4>
+                    </address>
+                </div>
+                <div class="col-xs-6 text-right">
+                    <address>
+                        <p>Experience the American West and Mexico with Adobe Transportation</p>
+                        <h5>(520) 609-0593</h5>
+                <h5>adobetransportation@gmail.com</h5>
+                <h6>www.adobetransportation.com</h6>
+
+                    </address>
+                </div>
+            
+    </div>
+
+	<hr>
+        <div class="col-xs-12">
+    		<div class="invoice-title">
+    			<h2>Shuttle Invoice #: <span class="text-danger">{{shuttle_detail.invoice_id}}</span></h2>
+                <h3 class="pull-right"></h3>
+    		</div>
+    		<hr>
+    		<div class="row">
+    			<div class="col-xs-6">
+    				<address>
+    				<strong>Billed To:</strong><br>
+    					<h3><span class="text-primary">{{shuttle_detail.customer_info.last_name}}, {{shuttle_detail.customer_info.first_name}}<br>
+    					{{shuttle_detail.customer_info.phone}}<br>
+    					{{shuttle_detail.customer_info.email}}<br></h3>
+    				</address>
+    			</div>
+    			<div class="col-xs-6 text-right">
+    				<address>
+        			<strong>Shuttle Information:</strong><br><br>
+                    <!-- <strong>Van # </strong><span class="text-primary">{{shuttle_detail.van_number}}</span><br> -->
+    					<strong>Event Name: </strong><span class="text-primary">{{shuttle_detail.event_name}}<br></span>
+                        <strong>Organizaiton: </strong><span class="text-primary">{{shuttle_detail.org_name}}<br></span>
+    					<strong>Shuttle Type: </strong><span class="text-primary"> {{shuttle_detail.shuttle_type}}<br></span>
+                        <strong>Driver Name: </strong><span class="text-primary">{{shuttle_detail.driver_info}}<br></span>
+                        <strong>Van Number: </strong><span class="text-primary">{{shuttle_detail.van_info}}<br></span>
+					
+						 
+                         
+					
+    				</address>
+    			</div>
+    		</div>
+    		<div class="row">
+    			<div class="col-xs-6">
+    				<address>
+    					
+
+
+
+<!-- cost
+event_name
+org_name
+customer_info
+shuttle_type
+payment_status
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ -->
+
+
+
+
+
+    				
+						<strong>Total Due for Shuttle Service</strong><br>
+    					<strong><span class="text-danger">${{shuttle_detail.cost}} </strong><br></span>
+    					<span class="text-info">{{shuttle_detail.payment_status}}<br></span>
+
+    					
+    				</address>
+    			</div>
+    			<div class="col-xs-6 text-right">
+    				
+    				<tr>
+            
+            <th> &nbsp;  </th>
+
+            <th><a class="btn btn-danger" href="{% url 'flagstone:shuttle_update' pk=shuttle_detail.pk %} ">UPDATE</a></th>
+        </tr>
+    			</div>
+    		</div>
+    	</div>
+    </div>
+    
+    <div class="row">
+    	<div class="col-md-12">
+    		<div class="panel panel-default">
+    			<div class="panel-heading">
+    				<h3 class="panel-title"><strong>Ground Shuttle</strong></h3>
+    			</div>
+    			<div class="panel-body">
+    				<div class="table-responsive">
+    					<table class="table table-condensed">
+    						<thead>
+                                <tr>
+        							<td class="text-center"><strong>Primary Pick Up Details</strong></td>
+        							<td class="text-center"><strong></strong></td>
+        							<td class="text-center"><strong>Secondary Pick Up Details</strong></td>
+        							<td class="text-right"><strong></strong></td>
+                                </tr>
+    						</thead>
+    						<tbody>
+    							<!-- foreach ($order->lineItems as $line) or some such thing here -->
+    							<tr class="bg-light">
+    								<td class="text-left">Pick Up Date: <strong>{{shuttle_detail.primary_pickup_date}}</strong></td>
+                                    <td class="text-center"> </td>
+
+    								<td class="text-left">2nd Pick Up Date: {{shuttle_detail.departure_pickup_date}}</td>   								
+    								<td class="text-right"></td>
+    							</tr>
+                                <tr>
+        							<td class="text-left">Pick Up Time: <strong>{{shuttle_detail.primary_pickup_time}}</strong></td>
+    								<td class="text-center"></td>
+
+                                    <td class="text-left">2ns Pick Up Time: {{shuttle_detail.departure_pickup_time}}</td>
+    								<td class="text-right"></td>
+    							</tr>
+                                <tr>
+                                    <td class="text-left">Pick Up Location: <strong>{{shuttle_detail.primary_pickup_location}}</strong></td>
+                                    <td class="text-center"></td>
+
+                                    <td class="text-left">2nd Pick Up Location: {{shuttle_detail.departure_pickup_location}}</td>                                
+                                    <td class="text-right"></td>
+                                </tr>
+                                <tr class="bg-light">
+            						<td class="text-left">Drop Off Location: <strong>{{shuttle_detail.primary_dropoff}}</strong></td>
+    								<td class="text-center"></td>
+
+                                    <td class="text-left">2nd Drop Off Location: {{shuttle_detail.departure_dropoff}}</td>
+    								<td class="text-right"></td>
+    							</tr>
+    							
+    							<tr class="bg-light">
+            						<td class="text-left">Primary Notes</td>
+    								<td class="text-center"></td>
+
+    								<td class="text-left">Secondary Notes</td>
+    								<td class="text-right"></td>
+    							</tr>
+                                <tr class="bg-light">
+                                    <td class="text-left">{{shuttle_detail.primary_ground_notes}}</td>
+                                    <td class="text-center"></td>
+
+                                    <td class="text-left">{{shuttle_detail.departing_ground_notes}}</td>
+                                    <td class="text-right"></td>
+                                </tr>
+    							
+    							
+                                
+    						</tbody>
+    					</table>
+    				</div>
+    			</div>
+    		</div>
+    	</div>
+    </div>
+    <div class="row">
+    	<div class="col-md-12">
+    		<div class="panel panel-default">
+    			<div class="panel-heading">
+    				<h3 class="panel-title"><strong>Flight Itinerary</strong></h3>
+    			</div>
+    			<div class="panel-body">
+    				<div class="table-responsive">
+    					<table class="table table-condensed">
+    						<thead>
+                                <tr>
+        							<td class="text-center"><strong>Arrival Details</strong></td>
+                                    <td class="text-center"><strong></strong></td>
+                                    <td class="text-center"><strong>Departure Details</strong></td>
+                                    <td class="text-right"><strong></strong></td>
+                                </tr>
+    						</thead>
+    						<tbody>
+    							<!-- foreach ($order->lineItems as $line) or some such thing here -->
+    							<tr class="bg-light">
+            						<td class="text-left">Arrival Date: <strong>{{shuttle_detail.arrival_date}}</strong></td>
+    								<td class="text-center"></td>
+
+    								<td class="text-left">Departure Date: <strong>{{shuttle_detail.departure_date}}</strong></td>
+                                    <td class="text-center"></td>
+    							</tr>
+    							<tr class="bg-light">
+                                    <td class="text-left">Arrival Time: <strong>{{shuttle_detail.arrival_time}}</strong></td>
+                                    <td class="text-center"></td>
+                                    <td class="text-left">Departure Time: <strong>{{shuttle_detail.departure_time}}</strong></td>
+                                    <td class="text-center"></td>
+                                </tr>
+                                <tr class="bg-light">
+                                    <td class="text-left">Arrival Airport: <strong>{{shuttle_detail.arrival_airport}}</strong></td>
+                                    <td class="text-center"></td>
+
+                                    <td class="text-left">Departure Airport: <strong>{{shuttle_detail.departure_airport}}</strong></td>
+                                    <td class="text-center"></td>
+                                </tr>
+                                <tr class="bg-light">
+                                    <td class="text-left">Arrival Airline: <strong>{{shuttle_detail.arrival_airline}}</strong></td>
+                                    <td class="text-center"></td>
+
+                                    <td class="text-left">Departure Airline: <strong>{{shuttle_detail.departure_airline}}</strong></td>
+                                    <td class="text-center"></td>
+                                </tr>
+                                <tr class="bg-light">
+                                    <td class="text-left">Arrival Flight #: <strong>{{shuttle_detail.arrival_flight}}</strong></td>
+                                    <td class="text-center"></td>
+
+                                    <td class="text-left">Departure Flight #: <strong>{{shuttle_detail.departure_flight}}</strong></td>
+                                    <td class="text-center"></td>
+                                </tr>
+                                <tr class="bg-light">
+                                    <td class="text-left">Arrival Drop Location: <strong>{{shuttle_detail.drop_location}}</strong></td>
+                                    <td class="text-center"></td>
+
+                                    <td class="text-left"></td>
+                                    <td class="text-center"></td>
+                                </tr>
+                                <tr class="bg-light">
+                                    <td class="text-left">Arrival Notes: <strong>{{shuttle_detail.arrival_notes}}</strong></td>
+                                    <td class="text-center"></td>
+
+                                    <td class="text-left">Departing Notes: <strong>{{shuttle_detail.notes}}</strong></td>
+                                    <td class="text-center"></td>
+                                </tr>
+                                <tr class="bg-light">
+                                    <td class="text-left"></td>
+                                    <td class="text-center"></td>
+                                    <td class="text-left"></td>
+                                    <td class="text-center"></td>
+                                </tr>
+                                <tr class="bg-light">
+                                    <td class="text-left"></td>
+                                    <td class="text-center"></td>
+                                    <td class="text-left"><strong>Departing Pick Up Detail</strong></td>
+                                    <td class="text-center"></td>
+                                </tr>
+                                <tr class="bg-light">
+                                    <td class="text-left"></td>
+                                    <td class="text-center"></td>
+                                    <td class="text-left">Departing Pick Up Location: <strong>{{shuttle_detail.pickup_location}}</strong></td>
+                                    <td class="text-center"></td>
+                                </tr>
+                                <tr class="bg-light">
+                                    <td class="text-left"></td>
+                                    <td class="text-center"></td>
+                                    <td class="text-left">Departing Pick Up Time: <strong>{{shuttle_detail.pickup_time}}</strong></td>
+                                    <td class="text-center"></td>
+                                </tr>
+                                
+                                <tr class="bg-light">
+                                    <td class="text-left"></td>
+                                    <td class="text-center"></td>
+                                    <td class="text-left"></td>
+                                    <td class="text-center"></td>
+                                </tr>
+
+
+    						</tbody>
+    					</table>
+    				</div>
+    			</div>
+    		</div>
+    	</div>
+        <div><p>General Notes: <strong>{{shuttle_detail.notes}}</strong></p></div><br><br><br><tr></tr>
+                    
+<div><p> <a class="btn btn-danger" href="{% url 'flagstone:shuttle_update' pk=shuttle_detail.pk %} ">UPDATE</a></p><br><br><br></div>
+{% endblock %}
+
+
+
+
+
+
+
+
+

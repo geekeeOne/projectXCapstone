@@ -1,0 +1,256 @@
+
+
+{% extends 'flagstone/base.html' %}
+
+
+{% block body_content %}
+
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<div class="container">
+ <div class="container">
+    <form method="POST">
+
+    {% csrf_token %}
+    
+    <input type="submit" class="btn btn-primary" value="Submit" name=""> 
+    <div class="row">
+                <div class="col-xs-6">
+                    <address>
+                <h3>Adobe Transportation</h3>
+                <h4>4625 E Broadway, Suite 106</h4>
+                <h4>Tucson, AZ 85711</h4>
+                    </address>
+                </div>
+                <div class="col-xs-6 text-right">
+                    <address>
+                        <p>Experience the American West and Mexico with Adobe Transportation</p>
+                        <h5>(520) 609-0593</h5>
+                <h5>adobetransportation@gmail.com</h5>
+                <h6>www.adobetransportation.com</h6>
+
+                    </address>
+                </div>
+            
+    </div>
+
+	<hr>
+        <div class="col-xs-12">
+    		<div class="invoice-title">
+    			<h2><span class="text-danger">RENTAL UPDATE FORM</span></h2>
+                <h3 class="pull-right"></h3>
+    		</div>
+    		<hr>
+    		<div class="row">
+    			<div class="col-xs-6">
+    				<address>
+    				<strong class="text-danger">Billed To:</strong><br>
+    					<h5><span class="text-primary">Organization:{{form.org_name}}<br>or<br>
+                            Customer:{{form.customer}}<br>
+    					</h5>
+    				</address>
+    			</div>
+    			<div class="col-xs-6 text-right">
+    				<address>
+        			<strong class="text-danger">Rental Information:</strong><br><br>
+                    <strong>Van # </strong><span class="text-primary">{{form.van_number}}</span><br>
+    					<strong>Rental Date: </strong><span class="text-primary">{{form.rental_date}}<br></span>
+                        <strong>Rental Time: </strong><span class="text-primary">{{form.rental_time}}<br></span>
+    					<strong>Return Date: </strong><span class="text-primary">{{form.return_date}}<br></span>
+                        <strong>Rental Time: </strong><span class="text-primary">{{form.return_time}}<br></span>
+						
+						
+						<strong>Daily Rate: </strong><span class="text-primary">${{form.daily_rate}}<br></span>
+						<strong>Daily Miles: </strong><span class="text-primary">{{form.daily_allowed_miles}} miles/day<br></span>
+						<strong>Mileage Over Rate: </strong><span class="text-primary">${{form.mileage_over_rate}} /mile<br></span>
+    				</address>
+    			</div>
+    		</div>
+    		<div class="row">
+    			<div class="col-xs-6">
+    				<address>
+    					
+
+
+
+
+
+
+
+
+
+
+
+    					<strong class="text-danger">Van Check Out</strong><br><span class="text-danger">
+						{{form.status_type}}</span><br>
+    					<strong>Odometer Out</strong><br>
+						<span class="text-primary">{{form.odometer_out}} mi<br></span>
+						<strong>Notes Out</strong><br>
+						{{form.notes_out}}<br>
+						<strong>Total Due for Rental</strong><br>
+    					<strong><span class="text-danger"></strong><br></span>
+    					<span class="text-info">{{form.total_due_status}}<br></span>
+
+    					<strong>Closing Amount Due:</strong><br>
+						<strong><span class="text-danger"></strong><br></span> 
+                        <span class="text-info">{{form.final_total_status}}</span>
+    				</address>
+    			</div>
+    			<div class="col-xs-6 text-right">
+    				<address>
+    					<strong class="text-danger">Van Check In</strong><br><br>
+    					<strong>Date Returned</strong>
+						<span class="text-primary">{{form.date_returned}}<br></span>
+                        <strong>Time Returned</strong>
+                        <span class="text-primary">{{form.time_returned}}<br></span>
+						<strong>Odometer In</strong>
+						<span class="text-primary">{{form.odometer_in}} mi<br></span>
+
+						Notes In<br>
+						<span class="text-primary">{{form.notes_in}}<br><br></span>
+    				</address>
+    				<tr>
+          
+            <th> &nbsp;  </th>
+
+            <th><input type="submit" class="btn btn-primary" value="Submit" name=""> </th>
+        </tr>
+    			</div>
+    		</div>
+    	</div>
+    </div>
+    
+    <div class="row">
+    	<div class="col-md-12">
+    		<div class="panel panel-default">
+    			<div class="panel-heading">
+    				<h3 class="panel-title"><strong>Order summary</strong></h3>
+    			</div>
+    			<div class="panel-body">
+    				<div class="table-responsive">
+    					<table class="table table-condensed">
+    						<thead>
+                                <tr>
+        							<td><strong>Description</strong></td>
+        							<td class="text-center"><strong></strong></td>
+        							<td class="text-center"><strong>Daily Rate</strong></td>
+        							<td class="text-right"><strong></strong></td>
+                                </tr>
+    						</thead>
+    						<tbody>
+    							<!-- foreach ($order->lineItems as $line) or some such thing here -->
+    							<tr class="bg-light">
+    								<td>US Insurance</td>
+    								<td class="text-center">${{form.us_insurance_rate}} /day</td>
+                                    <td class="no-line text-center">Surcharge:</td>
+                                    <td class="no-line text-right">${{form.surcharge}}</td>
+    							</tr>
+                                <tr>
+        							<td>Mexico Insurance</td>
+    								<td class="text-center">${{form.mexico_insurance_rate}} /day</td>
+                                    <td class="no-line text-center">License Tax:</td>
+                                    <td class="no-line text-right">${{form.lic_tax}}</td>
+    							</tr>
+                                <tr class="bg-light">
+            						<td>Roadside Assistance</td>
+    								<td class="text-center">${{form.roadside_assistance_rate}} /day</td>
+                                    <td class="no-line text-center">Sales Tax:</td>
+                                    <td class="no-line text-right">${{form.sales_tax}}</td>
+    							</tr>
+    							<tr>
+            						<td>Additional Driver Fee: </td>
+    								<td class="text-center">${{form.additional_driver_rate}} /day</td>
+                                    <td class="no-line text-center">Fuel Charge</td>
+                                    <td class="no-line text-right">${{form.fuel_charge}}</td>
+    							</tr>
+    							<tr class="bg-light">
+            						<td>Hitch Rental</td>
+    								
+    								<td class="text-center">${{form.hitch_rate}} /day</td>
+                                    <td class="no-line text-center">Cleaning Charge</td>
+                                    <td class="no-line text-right">${{form.cleaning_charge}}</td>
+    								
+    							</tr>
+    							<tr>
+            						<td>Luggage Rack Rental</td>
+    								<td class="text-center">${{form.luggage_rack_rate}} /day</td>
+                                    <td class="no-line text-center">Damage Charge</td>
+                                    <td class="no-line text-right">${{form.damage_charge}}</td>
+    							</tr>
+    						
+								
+    							<tr class="bg-light">
+            						<td>Airport Access Fee</td>
+    								<td class="text-center">${{form.airport_access_fee}}</td>
+                                    <td class="no-line text-center">Misc Charge</td>
+                                    <td class="no-line text-right">${{form.misc_charge}}</td>
+    							</tr>
+    							<tr>
+            						<td>Airport Pickup Fee:</td>
+    								<td class="text-center">${{form.airport_pickup_fee}}</td>
+                                    <td class="text-center"></td>
+                                    <td class="text-center"></td>
+                                    </td>
+    							</tr>
+    							<tr class="bg-light">
+            						<td>Drop Fee</td>
+    								<td class="text-center">${{form.drop_fee}}</td>
+                                    <td class="text-center"></td>
+                                    <td class="text-center"></td>
+    							</tr>
+    							<tr>
+            						<td>Misc Fee</td>
+    								<td class="text-center">${{form.misc_fee}}</td>
+                                    <td class="text-center"></td>
+                                    <td class="text-center"></td>
+    							</tr>
+    							<tr class="bg-light">
+            						<td>Misc. Description</td>
+    								<td class="text-center">{{form.misc_fee_text}}</td>
+                                    <td class="no-line text-center">Misc Charge Description</td>
+                                    <td class="no-line text-right">{{form.misc_charge_text}}
+    								
+    							</tr>
+    							
+    					
+
+    						
+    						
+                                
+    						</tbody>
+    					</table>
+    				</div>
+    			</div>
+    		</div>
+    	</div>
+    </div>
+  
+
+<div class="container"><input type="submit" class="btn btn-primary" value="Submit" name=""> <br><br><br></div>
+</form>
+</address>
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

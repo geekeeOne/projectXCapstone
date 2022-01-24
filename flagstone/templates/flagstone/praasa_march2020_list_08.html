@@ -1,0 +1,82 @@
+{% extends 'flagstone/base.html' %}
+{% load static %}
+
+
+{% block body_content %}
+
+<div class="jumbotron">
+	<table>
+		<tr>
+			<td class="text-left"><h1>Adobe Transportation</h1><p><h2 class="text-primary">PRAASA MARCH 2020</h2></p></td>            
+            <td class="text-center"></td>
+			<td class="text-right">
+
+            </td>
+		</tr>
+       
+        <tr>
+        <table>
+            <address>
+                <form method="GET" class="text-right">
+                    {{ filter.form }}
+                    <p><button type="submit" class="btn btn-primary">Search</button> </p></form>
+            </address>
+        </table>               
+        </tr>
+	</table>
+  <h1></h1>
+  
+</div>
+<div class="container">
+    <table class="table table-condensed">
+    <thead>
+            
+
+       
+
+    </thead>
+        <tbody>
+
+            <th>
+               <!--  <td class="text-left">
+                    <strong>March 4th Arrivals</strong>
+
+                {% for person in filter.qs %}
+                {% if person.status_box == 'Active' and person.arrival_date.day == 4  %}               
+                <p><a href="{% url 'flagstone:praasa_statement' pk=person.pk %}">{{person.name}} - {{person.arrival_flight}} - {{person.arrival_time}} {% endif %} </a></p>
+            
+
+                {% endfor %}
+                </td> -->
+                
+            </th>
+            <th>
+                <td class="text-left">
+                    <strong>March 8th Departures</strong>
+
+                {% for person in filter.qs %}
+
+                {% if person.departure_date.day == 8 %}
+                          
+                <p><a href="{% url 'flagstone:praasa_statement' pk=person.pk %}">{{person.name}} - {{person.pickup_location}} - {{person.pickup_time}}
+                {% endif %} </a></p>
+            
+
+                {% endfor %}
+                </td>
+
+                
+            </th>
+
+            
+
+        </tbody>
+    </table>
+
+</div>
+
+
+{% endblock %}
+
+
+    				

@@ -1,0 +1,29 @@
+{% extends 'flagstone/base.html' %}
+
+{% block body_content %}
+
+<div class="jumbotron">
+  <h1><b>Adobe Transportation</b></h1>
+  <h2 class="text-primary">Time Sheets List</h2>
+</div>
+
+
+  <div class="container">
+    {% for info in timesheet_list %}
+      <p><a href="{{info.id}}">{{ info.week_ending}}, {{ info.name }} - {{ info.weekly_hrs }}hrs</a></p>
+    {% endfor %}
+  </div>
+
+{% endblock %}
+
+
+name
+week_ending
+sun_time
+mon_time
+tue_time
+wed_time
+thu_time
+fri_time
+sat_time
+weekly_hrs

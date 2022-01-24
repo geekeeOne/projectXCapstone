@@ -1,0 +1,39 @@
+{% extends 'flagstone/base.html' %}
+
+
+
+
+{% block body_content %}
+<div class="jumbotron">
+<h1><b>Adobe Transportation</b></h1><h2>Van Maintenance Log Details</h2></div>
+
+<div class="container">
+
+	
+<p>{{vanmaintenancelog_detail.van_information}} van_information</p>
+<p>{{vanmaintenancelog_detail.maintenance_type}} maintenance_type</p>
+<p>{{vanmaintenancelog_detail.maintenance_location}} maintenance_location</p>
+<p>{{vanmaintenancelog_detail.maintenance_date}} maintenance_date</p>
+<p>{{vanmaintenancelog_detail.maintenance_time}} maintenance_time</p>
+<p>{{vanmaintenancelog_detail.inspection_note}} inspection_note</p>
+
+
+
+
+</div>
+<br>
+<div class="container">
+	<p><a class="btn btn-danger" href="{% url 'flagstone:vanmaintenancelog_update' pk=vanmaintenancelog_detail.pk %}">UPDATE</a></p>
+</div>
+
+
+
+{% endblock %}
+
+
+
+
+
+
+
+

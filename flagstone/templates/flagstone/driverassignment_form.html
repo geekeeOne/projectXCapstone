@@ -1,0 +1,26 @@
+{% extends 'flagstone/base.html' %}
+
+{% block body_content %}
+
+<div class="jumbotron">
+  <h1><b>Adobe Transportation</b></h1>
+  <h2 class="text-danger">Driver Assignment Form</h2>
+</div>
+
+
+  <div class="container">
+  	<form method="POST">
+  		{% csrf_token %}
+   <p>{{form.driver}} driver</p>
+<p>{{form.van}} van</p>
+<p>{{form.pudo}} pudo</p>
+<p>{{form.ap_pudo}} ap_pudo</p>
+<p>{{form.sp_serv}} sp_serv</p>
+<p>{{form.sp_evnt}} sp_evnt</p>
+<input type="submit" class="btn btn-primary" value="Submit" name=""> 
+  </div>
+  </form>
+
+{% endblock %}
+
+

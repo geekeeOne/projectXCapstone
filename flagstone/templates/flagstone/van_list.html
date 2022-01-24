@@ -1,0 +1,17 @@
+{% extends 'flagstone/base.html' %}
+
+{% block body_content %}
+
+<div class="jumbotron">
+  <h1><b>Adobe Transportation</b></h1>
+  <h2 class="text-primary">Van List</h2>
+</div>
+
+
+  <div class="container">
+    {% for van in van_list %}
+      <p><a href="{{van.id}}">{{ van.van_num}}, {{ van.plate }}</a></p>
+    {% endfor %}
+  </div>
+
+{% endblock %}

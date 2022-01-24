@@ -1,0 +1,29 @@
+{% extends 'flagstone/base.html' %}
+
+
+{% block body_content %}
+<div class="jumbotron"><h1><b>Adobe Transportation</b></h1><h2>Van Details</h2></div>
+<div class="container">
+
+	
+<h4><b>{{van_detail.van_num}}</b> - Van Number </h4><br>
+<h4><b>{{van_detail.vin}}</b> - VIN</h4><br>
+<h4><b>{{van_detail.year_make_model}}</b> - Year/Make/Model</h4><br>
+<h4><b>{{van_detail.plate}}</b> - License Plate </h4><br>
+<h4><b>{{van_detail.tag_exp}}</b> - Tags Exp Date </h4><br>
+
+
+
+
+
+
+
+</div>
+<br>
+<div class="container">
+	<p><a class="btn btn-danger" href="{% url 'flagstone:update_van' pk=van_detail.pk %}">UPDATE</a></p>
+</div>
+
+
+
+{% endblock %}

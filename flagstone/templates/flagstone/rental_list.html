@@ -1,0 +1,143 @@
+{% extends 'flagstone/base.html' %}
+{% load static %}
+
+{% block body_content %}
+<div class="jumbotron">
+	<table>
+		<tr>
+			<td class="text-left"><h1>Adobe Transportation</h1><p><h2 class="text-primary">Rentals Database</h2></p></td>            
+            <td class="text-center"></td>
+			<td class="text-right"></td>
+		</tr>
+	</table>
+  <h1></h1>
+  
+</div>
+<div class="container">
+    <table class="table table-condensed">
+    <thead>
+    <!-- <tr> -->
+    <td class="text-left"><strong>Rentals
+
+
+    </strong></td>
+    <!-- <td class="text-center"><strong></strong></td> -->
+    <!-- <td class="text-right"><strong>Shuttles</strong></td> -->
+    </tr>
+    </thead>
+        <tbody>
+            <!-- foreach ($order->lineItems as $line) or some such thing here -->
+            <tr>
+                <td class="text-left">
+                {% for rental in rental_list %}               
+                <p><a href="{% url 'flagstone:rental_statement' pk=rental.pk %}">{{rental.rental_date}} -- {{ rental.customer.last_name }}, {{ rental.customer.first_name}} {{rental.org_name}}-- {{rental.van_number}}</a></p>
+                
+                {% endfor %}
+                </td>
+                <!-- <td class="text-center"></td> -->
+                
+            </tr>
+
+        </tbody>
+    </table>
+
+</div>
+
+<!-- <div class="container">This is another list
+
+    {% for item in ap_shuttle %}
+    <p>{{item.affiliate_name}}-{{item.arrival_date}}</p>
+    {% endfor %}
+                {% for item in shuttle_ext %}
+               
+                <p>{{item.customer_info}} - {{item.evnt_name}} - {{item.payment_status}}</p>
+               
+                {% endfor %}
+
+                </div> -->
+
+{% endblock %}
+
+
+    					<table class="table table-condensed">
+    						<thead>
+                                <tr>
+        							<td><strong>Description</strong></td>
+        							<td class="text-center"><strong></strong></td>
+        							<td class="text-right"><strong></strong></td>
+                                </tr>
+    						</thead>
+    						<tbody>
+    							<!-- foreach ($order->lineItems as $line) or some such thing here -->
+    							
+    							<tr>
+            						<td>Days Over {{rental_detail.days_over}}</td>
+    								<td class="text-right"></td>
+    								<td class="text-right"></td>
+    							</tr>
+    							<tr>
+            						<td>Days Over Charge {{rental_detail.days_over_charge}}</td>
+    								<td class="text-right"></td>
+    								<td class="text-right"></td>
+    							</tr>
+    							<tr>
+            						<td>Miles Driven {{rental_detail.actual_miles_driven}}/mi</td>
+    								<td class="text-right"></td>
+    								<td class="text-right"></td>
+    							</tr>
+    							<tr>
+            						<td>Miles Allowed  {{rental_detail.miles_allowed}}</td>
+    								<td class="text-right"></td>
+    								<td class="text-right"></td>
+    							</tr>
+    							<tr>
+            						<td>Miles Over {{rental_detail.miles_over}}</td>
+    								<td class="text-right"></td>
+    								<td class="text-right"></td>
+    							</tr>
+    							<tr>
+            						<td>Mileage Over Charge {{rental_detail.mileage_over_charge}}</td>
+    								<td class="text-right"></td>
+    								<td class="text-right"></td>
+    							</tr>
+    						
+								
+    							<tr>
+
+    								<td></td>
+            						<td><strong>Closing Amount Due:</strong> </td> <td><strong>{{rental_detail.final_total}}</strong> </td>
+    								
+    							</tr>
+
+    							
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
+
+
+
+    						</tbody>
+    					</table>
+    					
+    				</div>
+    			</div>
+    		</div>
+    	</div>
+    </div>
+
+
+{{rental.van_number}}
+{{rental.rental_date}}

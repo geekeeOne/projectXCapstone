@@ -1,0 +1,84 @@
+{% extends 'flagstone/base.html' %}
+
+
+
+
+
+
+
+
+{% block body_content %}
+<!-- <link rel="stylesheet" type="text/css" href="master.css"> -->
+<div class="jumbotron"><h1><b>Adobe Transportation</b></h1><h2 class="text-danger">Customer Form</h2></div>
+<div class="container">
+
+
+
+<div class="container">
+    
+
+<form method="POST">
+
+    {% csrf_token %}
+<table>
+
+	<thead>
+		<tr>
+			<td>
+				<p>{{form.first_name}} First Name</p>
+				<p>{{form.last_name}} Last Name</p>
+			</td>
+			<td>
+				<p>{{form.phone}} Phone Number</p>
+				<p>{{form.email}} Email</p>
+			</td>
+			<td>{{form.affiliate_info}}</td>
+		</tr>
+	</thead>
+	<body>
+		<tr>
+			<td>
+				<p>{{form.street}} Street</p>
+				<p>{{form.state}} State</p>
+			</td>
+			<td>
+				<p>{{form.city}} City</p>
+				<p>{{form.z_code}} Zip Code</p>
+			</td>
+		</tr>
+		<tr>
+			
+			<td>
+				<p>{{form.d_lic_num}} DL Number</p>
+				<p>{{form.d_lic_exp}} DL Exp Date</p>
+				<p>{{form.d_dob}} DL DOB</p>
+			</td>
+			<td>
+				<p>{{form.cc_num}} CC Number</p>
+				<p>{{form.cc_exp}} CC Exp Date</p>
+				<p>{{form.cc_cv}} CC CV</p>
+			</td>
+		</tr>
+
+
+	</body>
+</table>
+
+
+
+
+
+
+
+
+
+
+<input type="submit" class="btn btn-primary" value="Submit" name=""> 
+</form>
+
+
+</div>
+
+
+{% endblock %}
+

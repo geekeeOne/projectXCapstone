@@ -1,0 +1,147 @@
+{% extends 'flagstone/base.html' %}
+{% load static %}
+
+{% block body_content %}
+<link href="/style.css" rel="stylesheet">
+<div class="jumbotron">
+	<table>
+		<tr>
+			<td class="text-left"><p><h2 class="page-title">Reservations</h2></p>
+                <p class='thisOne' id="date_func"><script type="text/javascript">
+                function todayDate(){
+                    var now = new Date();
+                    var h
+                    return(document.write(now))
+                    
+                }todayDate();       
+            </script></p></td>            
+            <td class="text-center"></td>
+			<td class="text-right"></td>
+		</tr>
+	</table>
+
+  
+</div>
+<div class="container">
+    <table class="table table-condensed">
+    <thead>
+    <tr>
+    <td class="text-left" id="list-title"><strong>Rentals
+
+
+    </strong></td>
+    <!-- <td class="text-center"><strong></strong></td> -->
+    <td class="text-right" id="list-title"><strong>Shuttles</strong></td>
+    </tr>
+    </thead>
+        <tbody>
+            <!-- foreach ($order->lineItems as $line) or some such thing here -->
+            <tr>
+                <td class="text-left">
+                {% for rental in rental_list %}
+                {% if rental.status_type == 'ACTIVE' %}
+
+                    {% if rental.customer.first_name != 'NaaN' %}
+                <p><a href="{% url 'flagstone:rental_statement' pk=rental.pk %}">{{rental.rental_date}} - {{ rental.customer.first_name}} {{ rental.customer.last_name }} - {{rental.van_number}}</a></p>
+
+
+                {% elif rental.org_name != 'NaaN' %}
+                     <p><a href="{% url 'flagstone:rental_statement' pk=rental.pk %}">{{rental.rental_date}} -- {{ rental.org_name }} -- {{rental.van_number}}</a></p>
+                    {% endif %}
+                {% endif %}
+
+                {% endfor %}
+                </td>
+                <!-- <td class="text-center"></td> -->
+                <td class="text-right">{% for shuttle in shuttle_list %}
+                {% if shuttle.status_type == 'ACTIVE' %}
+                <p><a href="{% url 'flagstone:shuttle_statement' pk=shuttle.pk %}">
+                {% if shuttle.shuttle_type == 'SH' %}
+                {{ shuttle.shuttle_type }} - 
+                {{ shuttle.primary_pickup_date }} - 
+                {{ shuttle.customer_info }} -                 
+                {{ shuttle.departure_pickup_date }}
+                {% elif shuttle.shuttle_type == 'AP' %}
+                {{ shuttle.shuttle_type }} - 
+                {{ shuttle.arrival_date }} - 
+                {{ shuttle.customer_info }} -                 
+                {{ shuttle.departure_date }}
+                {% endif %}
+                </a></p>
+                {% endif %}
+                {% endfor %}</td>
+            </tr>
+
+        </tbody>
+    </table>
+
+</div>
+
+
+
+{% endblock %}
+
+
+    					<table class="table table-condensed">
+    						<thead>
+                                <tr>
+        							<td><strong>Description</strong></td>
+        							<td class="text-center"><strong></strong></td>
+        							<td class="text-right"><strong></strong></td>
+                                </tr>
+    						</thead>
+    						<tbody>
+    							<!-- foreach ($order->lineItems as $line) or some such thing here -->
+    							
+    							<tr>
+            						<td>Days Over {{rental_detail.days_over}}</td>
+    								<td class="text-right"></td>
+    								<td class="text-right"></td>
+    							</tr>
+    							<tr>
+            						<td>Days Over Charge {{rental_detail.days_over_charge}}</td>
+    								<td class="text-right"></td>
+    								<td class="text-right"></td>
+    							</tr>
+    							<tr>
+            						<td>Miles Driven {{rental_detail.actual_miles_driven}}/mi</td>
+    								<td class="text-right"></td>
+    								<td class="text-right"></td>
+    							</tr>
+    							<tr>
+            						<td>Miles Allowed  {{rental_detail.miles_allowed}}</td>
+    								<td class="text-right"></td>
+    								<td class="text-right"></td>
+    							</tr>
+    							<tr>
+            						<td>Miles Over {{rental_detail.miles_over}}</td>
+    								<td class="text-right"></td>
+    								<td class="text-right"></td>
+    							</tr>
+    							<tr>
+            						<td>Mileage Over Charge {{rental_detail.mileage_over_charge}}</td>
+    								<td class="text-right"></td>
+    								<td class="text-right"></td>
+    							</tr>
+    						
+								
+    							<tr>
+
+    								<td></td>
+            						<td><strong>Closing Amount Due:</strong> </td> <td><strong>{{rental_detail.final_total}}</strong> </td>
+    								
+    							</tr>
+
+                                
+    						</tbody>
+    					</table>
+    					
+    				</div>
+    			</div>
+    		</div>
+    	</div>
+    </div>
+
+
+{{rental.van_number}}
+{{rental.rental_date}}

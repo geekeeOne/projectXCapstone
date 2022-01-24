@@ -1,0 +1,37 @@
+{% extends 'flagstone/base.html' %}
+
+
+
+
+
+{% block body_content %}
+
+<div class="Jumbotron"><h1><b>Adobe Transportation</b></h1><h2>Customer Details</h2></div>
+
+<div class="container">
+
+	
+<h4><b>{{customer_detail.first_name}} {{ customer_detail.last_name }}</b></h4>
+<h4><b>{{customer_detail.phone}}</b></h4>
+<h4><b>{{customer_detail.email}}</b></h4><br>
+
+<h5><b>{{customer_detail.street}}<br>
+{{customer_detail.city}}, {{customer_detail.state}} {{customer_detail.z_code}}</b></h5>
+
+Drivers Lic Number // Drivers Lic Exp
+<h5><b>{{customer_detail.d_lic_num}} // {{customer_detail.d_lic_exp}}</b></h5>
+
+Name on CC // CC Number<br>
+<h5><b>{{customer_detail.name_on_cc}}</b> // <b>{{customer_detail.cc_num}}</b></h5>
+CC Exp // CC CSV<br>
+<h5><b>{{customer_detail.cc_exp}}</b> // <b>{{customer_detail.cc_cv}}</b></h5>
+
+</div>
+<br>
+<div class="container">
+	<p><a class="btn btn-danger" href="{% url 'flagstone:update_customer' pk=customer_detail.pk %}">UPDATE</a></p>
+</div>
+
+
+
+{% endblock %}

@@ -1,0 +1,46 @@
+{% extends 'flagstone/base.html' %}
+
+
+
+
+
+
+
+
+{% block body_content %}
+<!-- <link rel="stylesheet" type="text/css" href="master.css"> -->
+<div class="jumbotron"><h1><b>Adobe Transportation</b></h1><h2 class="text-danger">Timesheet Form</h2></div>
+<div class="container">
+
+
+
+<div class="container">
+    
+
+<form method="POST">
+
+    {% csrf_token %}
+<p>{{form.name}} name</p>
+<p>{{form.week_ending}} week_ending</p>
+<p>{{form.sun_time}} sun_time</p>
+<p>{{form.mon_time}} mon_time</p>
+<p>{{form.tue_time}} tue_time</p>
+<p>{{form.wed_time}} wed_time</p>
+<p>{{form.thu_time}} thu_time</p>
+<p>{{form.fri_time}} fri_time</p>
+<p>{{form.sat_time}} sat_time</p>
+
+
+
+<input type="submit" class="btn btn-primary" value="Submit" name=""> 
+</form>
+
+
+</div>
+
+
+{% endblock %}
+
+
+
+

@@ -1,0 +1,247 @@
+
+
+{% extends 'flagstone/base.html' %}
+
+
+{% block body_content %}
+
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<div class="container">
+ <div class="container">
+    <a class="btn btn-danger" href="{% url 'flagstone:update_praasa' pk=praasa_detail.pk %}">UPDATE</a>
+    <div class="row">
+                <div class="col-xs-6">
+                    <address>
+                <h3>Adobe Transportation</h3>
+                <h4>4625 E Broadway, Suite 106</h4>
+                <h4>Tucson, AZ 85711</h4>
+                    </address>
+                </div>
+                <div class="col-xs-6 text-right">
+                    <address>
+                        <p>Experience the American West and Mexico with Adobe Transportation</p>
+                        <h5>(520) 609-0593</h5>
+                <h5>adobetransportation@gmail.com</h5>
+                <h6>www.adobetransportation.com</h6>
+
+                    </address>
+                </div>
+            
+    </div>
+
+	<hr>
+        <div class="col-xs-12">
+    		<div class="invoice-title">
+    			<h2>Confirmation Invoice #:<br> <span class="text-danger">{{ praasa_detail.praasa_id }}</span></h2>
+                <h3 class="pull-right"></h3>
+    		</div>
+    		<hr>
+    		<div class="row">
+    			<div class="col-xs-6">
+    				<address>
+    				<strong>Billed To:</strong><br>
+    					<h3><span class="text-primary">{{praasa_detail.name}}<br>
+    					{{praasa_detail.phone}}<br>
+    					{{praasa_detail.email}}<br></h3>
+                        <p><strong>Status</strong></p>
+                        <p class="text-danger">{{praasa_detail.status_box}}</p>
+                        <p><strong>Shuttle Type</strong></p>
+                        <p class="text-danger">{{praasa_detail.shuttle_type}}</p>
+    				</address>
+    			</div>
+    			<div class="col-xs-6 text-right">
+    				<address>
+        		
+    				</address>
+    			</div>
+    		</div>
+    		<div class="row">
+    			<div class="col-xs-6">
+    				<address>
+    					
+
+
+
+
+
+
+						<strong>Cost of Service</strong><br>
+    					<strong><span class="text-danger">${{praasa_detail.cost}} </strong><br></span>
+    					<span class="text-info">{{praasa_detail.total_due_status}}<br></span>
+
+    					
+    				</address>
+    			</div>
+    			<div class="col-xs-6 text-right">
+    				<address>
+    					
+
+    				</address>
+    				<tr>
+         
+            <th> &nbsp;  </th>
+
+            <th><a class="btn btn-danger" href="{% url 'flagstone:update_praasa' pk=praasa_detail.pk %}">UPDATE</a></th>
+        </tr>
+    			</div>
+    		</div>
+    	</div>
+    </div>
+    
+
+
+
+    <div class="row">
+    	<div class="col-md-12">
+    		<div class="panel panel-default">
+    			<div class="panel-heading">
+    				<h3 class="panel-title"><strong>ITINERARY</strong></h3>
+    			</div>
+    			<div class="panel-body">
+    				<div class="table-responsive">
+    					<table class="table table-condensed">
+    						<thead>
+                                <tr>
+        							<td><strong>Arrival Information</strong></td>
+        							<td class="text-center"><strong></strong></td>
+        							<td class="text-left"><strong>Departure Information</strong></td>
+        							<td class="text-right"><strong></strong></td>
+                                </tr>
+    						</thead>
+    						<tbody>
+    							<!-- foreach ($order->lineItems as $line) or some such thing here -->
+    							<tr class="bg-light">
+                                    <td>Arrival Airport: <span class="text-primary">{{praasa_detail.arrival_airport}}</span></td>
+                                    <td class="text-center"></td>
+                                    <td class="text-left">Departing Airport: <span class="text-primary">{{praasa_detail.departure_airport}}</span></td>
+                                    <td class="text-right"></td>
+
+    								
+    							</tr>
+                                <tr>
+        							<td>Arrival Date: <span class="text-primary">{{praasa_detail.arrival_date}}</span></td>
+                                    <td class="text-center"></td>
+                                    <td class="text-left">Departure Date: <span class="text-primary">{{praasa_detail.departure_date}}</span></td>
+                                    <td class="text-right"></td>
+    							</tr>
+
+                                <tr class="bg-light">
+                                    <td>Arrival Time: <span class="text-primary">{{praasa_detail.arrival_time}}</span></td>
+                                    <td class="text-center"></td>
+                                    <td class="text-left">Departure Time: <span class="text-primary">{{praasa_detail.departure_time}}</span></td>
+                                    <td class="text-right"></td>
+                                </tr>
+                                <tr>
+                                    <td>Arrival Airline: <span class="text-primary">{{praasa_detail.arrival_airline}}</span></td>
+                                    <td class="text-center"></td>
+                                    <td class="text-left">Departing Airline: <span class="text-primary">{{praasa_detail.departure_airline}}</span></td>
+                                    <td class="text-right"></td>
+                                </tr>
+                                <tr class="bg-light">
+                                    <td>Arrival Flight: <span class="text-primary">{{praasa_detail.arrival_flight}}</span></td>
+                                    <td class="text-center"></td>
+                                    <td class="text-left">Departing Flight: <span class="text-primary">{{praasa_detail.departure_flight}}</span></td>
+                                    <td class="text-right"></td>
+                                </tr>
+                                <tr>
+                                    <td>Shuttle Destination: <span class="text-primary">{{praasa_detail.drop_location}}</span></td>
+                                    <td class="text-center"></td>
+                                    <td class="text-center"></td>
+                                    <td class="text-right"></td>
+                                </tr>
+                                <tr class="bg-light">
+                                    <td>Arrival Notes: <span class="text-primary">{{praasa_detail.arrival_notes}}</span></td>
+                                    <td class="text-center"></td>
+                                    <td class="text-left">Departing Notes<span class="text-primary">{{praasa_detail.departing_notes}}</span></td>
+                                    <td class="text-right"></td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td class="text-center"></td>
+                                    <td class="text-center"></td>
+                                    <td class="text-right"></td>
+                                </tr>
+                                <tr class="bg-light">
+                                    <td></td>
+                                    <td class="text-center"></td>
+                                    <td class="text-center"></td>
+                                    <td class="text-right"></td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td class="text-center"></td>
+                                    <td class="text-center"></td>
+                                    <td class="text-right"></td>
+                                </tr>
+                                <tr class="bg-light">
+                                    <td>Shuttle Departure Pickup Location: <span class="text-primary">{{praasa_detail.pickup_location}}</span></td>
+                                    <td class="text-center"></td>
+                                    <td class="text-left">Shuttle Departure Pickup Time: <span class="text-primary">{{praasa_detail.pickup_time}}</span></td>
+                                    <td class="text-right"></td>
+                                </tr>
+                               
+                                
+    						</tbody>
+    					</table>
+    				</div>
+    			</div>
+    		</div>
+    	</div>
+    </div>
+    <div class="row">
+        <div class="container">
+    	
+                    <address>
+        <h5>IMPORTANT INFORMATION!!!</h5>
+  
+<p>Our conference schedule for March 6-8, 2020 has chosen Adobe Transportation to provide attendees with direct Shuttle Service to and from the Tucson INternation Airport (TIA) and the Westin La Paloma Resort.</p>
+
+<p>Adobe Transportation will provide a Greeter to meet you as you enter the BAGGAGE CLAIM Area.
+
+<p>* The greeter will be holding a sign reading PRAASA SHUTTLE, will assist with luggage and guide youto an Adobe Transportion van which will take you directly to the Westin La Paloma Resort.</p>
+
+<p>* The Westin La Palom Resort is located about11 milesfrom the airport driving time is approximately 40 minutes depending on traffic.</p>
+
+<p>* Cost for this direct personal service is $40.00 round trip and $25.00 one way.</p>
+
+
+<p>Reservations can be made either by phone or email:</p>
+
+<p>Phone Reservation: 520-745-5940</p>
+
+<p>Email Reservation: adobetransportation.res@gmail.com</p>
+
+<p>Please Provide the Following Information:</p>
+
+
+
+<p>Payment can be made with credit card, debit card or cash. You will not be charged until the day of service. An electronic receipt will be sent to your email or cell phone.</p>
+</div>
+
+</div>
+
+<div>
+<br>
+
+<br>
+<br>
+
+
+
+</div>
+    
+<div class="container"><a class="btn btn-danger" href="{% url 'flagstone:update_praasa' pk=praasa_detail.pk %}">UPDATE</a><br><br><br></div>
+{% endblock %}
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,165 @@
+{% extends 'flagstone/base.html' %}
+
+
+
+
+
+
+
+
+{% block body_content %}
+<!-- <link rel="stylesheet" type="text/css" href="master.css"> -->
+<div class="jumbotron"><h1><b>Adobe Transportation</b></h1><h2 class="text-danger">Shuttle Form</h2></div>
+<div class="container">
+
+
+
+<form method="POST">
+
+    {% csrf_token %}
+    <input type="submit" class="btn btn-primary" value="Submit" name=""> 
+<table>
+<thead>
+	{{form.status_type}}
+<tr>
+	<td class="text-left">
+	<p><stron>event_name</stron></p>
+<p>{{form.event_name}}</p>
+
+<p><stron>org_name</stron></p>
+<p>{{form.org_name}}</p>
+
+<p><stron>customer_info</stron></p>
+<p>{{form.customer_info}}</p>
+
+<p><stron>shuttle_type</stron></p>
+<p>{{form.shuttle_type}}</p>
+	<td class="text-left">
+
+		<p><stron>cost</stron></p>
+<p>{{form.cost}}</p>
+
+<p><stron>payment_status</stron></p>
+<p>{{form.payment_status}}</p>
+
+<p><stron>driver_info</stron></p>
+<p>{{form.driver_info}}</p>
+
+<p><stron>van_info</stron></p>
+<p>{{form.van_info}}</p>
+	</td>
+</tr>	
+</thead>	
+
+
+<tbody>
+	
+
+<tr>
+	<td class="text-left"><br><br><strong>Ground Pick Up/Drop Off Primary Details</strong>
+<p><stron>primary_pickup_location</stron></p>
+<p>{{form.primary_pickup_location}}</p>
+<p><stron>primary_pickup_date</stron></p>
+<p>{{form.primary_pickup_date}}</p>
+<p><stron>primary_pickup_time</stron></p>
+<p>{{form.primary_pickup_time}}</p>
+<p><stron>primary_dropoff</stron></p>
+<p>{{form.primary_dropoff}}</p>
+<p><stron>primary_ground_notes</stron></p>
+<p>{{form.primary_ground_notes}}</p>
+</td>
+		<td class="text-left"><br><br><strong>Ground Pick Up/Drop Off Secondary Details</strong>
+
+<p><stron>departure_pickup_location</stron></p>
+<p>{{form.departure_pickup_location}}</p>
+<p><stron>departure_pickup_date</stron></p>
+<p>{{form.departure_pickup_date}}</p>
+<p><stron>departure_pickup_time</stron></p>
+<p>{{form.departure_pickup_time}}</p>
+<p><stron>departure_dropoff</stron></p>
+<p>{{form.departure_dropoff}}</p>
+<p><stron>departing_ground_notes</stron></p>
+<p>{{form.departing_ground_notes}}</p>
+</td>
+<td class="text-left">
+
+
+
+</td>
+
+
+</tr>
+
+
+<tr>
+
+</tr>
+
+
+<tr>
+<td class="text-left"><br><br><strong>Arrival Flight Itinerary</strong><p></p><br>
+
+<p><stron>arrival_date</stron></p>
+<p>{{form.arrival_date}}</p>
+<p><stron>arrival_time</stron></p>
+<p>{{form.arrival_time}}</p>
+<p><stron>arrival_airport</stron></p>
+<p>{{form.arrival_airport}}</p>
+<p><stron>arrival_airline</stron></p>
+<p>{{form.arrival_airline}}</p>
+<p><stron>arrival_flight</stron></p>
+<p>{{form.arrival_flight}}</p>
+<p><stron>drop_location</stron></p>
+<p>{{form.drop_location}}</p>
+<p><stron>arrival_notes</stron></p>
+<p>{{form.arrival_notes}}</p>
+
+
+
+</td>
+
+
+<td class="text-left"><br><br><strong>Departing Flight Itinerary</strong><p></p><br>
+<p><stron>departure_date</stron></p>
+<p>{{form.departure_date}}</p>
+<p><stron>departure_time</stron></p>
+<p>{{form.departure_time}}</p>
+<p><stron>departure_airport</stron></p>
+<p>{{form.departure_airport}}</p>
+<p><stron>departure_airline</stron></p>
+<p>{{form.departure_airline}}</p>
+<p><stron>departure_flight</stron></p>
+<p>{{form.departure_flight}}</p>
+<p><stron>departing_notes</stron></p>
+<p>{{form.departing_notes}}</p>
+
+
+</td>
+
+
+
+</tr>
+
+
+
+</tbody>
+</table>
+<td class="text-left">
+<strong>Returning Pick Up Details</strong><p></p>
+<p><stron>pickup_location</stron></p>
+<p>{{form.pickup_location}}</p>
+<p><stron>pickup_time</stron></p>
+<p>{{form.pickup_time}}</p>
+<p><stron>notes</stron></p>
+<p>{{form.notes}}</p>
+</td>
+
+
+<input type="submit" class="btn btn-primary" value="Submit" name=""> 
+</form>
+
+
+</div>
+
+{% endblock %}
+

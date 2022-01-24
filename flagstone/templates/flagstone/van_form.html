@@ -1,0 +1,39 @@
+{% extends 'flagstone/base.html' %}
+
+
+
+
+
+
+
+
+{% block body_content %}
+<!-- <link rel="stylesheet" type="text/css" href="master.css"> -->
+<div class="jumbotron"><h1><b>Adobe Transportation</b></h1><h2 class="text-danger">Van Form</h2></div>
+<div class="container">
+
+
+
+<div class="container">
+    
+
+<form method="POST">
+
+    {% csrf_token %}
+{{form.van_num}}
+{{form.vin}}
+{{form.year_make_model}}
+{{form.plate}}
+{{form.tag_exp}}
+
+
+
+<input type="submit" class="btn btn-primary" value="Submit" name=""> 
+</form>
+
+
+</div>
+
+
+{% endblock %}
+

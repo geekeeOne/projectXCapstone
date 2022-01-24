@@ -1,0 +1,32 @@
+{% extends 'flagstone/base.html' %}
+
+{% block body_content %}
+
+<div class="jumbotron">
+  <h1><b>Adobe Transportation</b></h1>
+  <h2>Driver Details</h2>
+</div>
+
+<div class="container">
+<p><strong class="text-primary">{{adobedriver_detail.first_name}} {{adobedriver_detail.last_name}}</strong></p>
+<p><strong class="text-primary">{{adobedriver_detail.phone}}</strong> phone</p>
+<p><strong class="text-primary">{{adobedriver_detail.email}}</strong> email</p>
+<p><strong class="text-primary">{{adobedriver_detail.street}}</strong> street</p>
+<p><strong class="text-primary">{{adobedriver_detail.city}}</strong> city</p>
+<p><strong class="text-primary">{{adobedriver_detail.state}}</strong> state</p>
+<p><strong class="text-primary">{{adobedriver_detail.z_code}}</strong> z_code</p>
+<p><strong class="text-primary">{{adobedriver_detail.d_lic_num}}</strong> d_lic_num</p>
+<p><strong class="text-primary">{{adobedriver_detail.d_lic_exp}}</strong> d_lic_exp</p>
+<p><strong class="text-primary">{{adobedriver_detail.d_dob}}</strong> d_dob</p>
+<p><strong class="text-primary">{{adobedriver_detail.date_of_hire}}</strong> date_of_hire</p>
+   
+  </div>
+
+  <br>
+<div class="container">
+	<p><a class="btn btn-danger" href="{% url 'flagstone:adobedriver_update' pk=adobedriver_detail.pk %}">UPDATE</a></p>
+</div>
+
+{% endblock %}
+
+
